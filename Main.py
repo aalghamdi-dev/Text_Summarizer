@@ -18,7 +18,7 @@ from reportlab.lib.units import cm
 # OpenRouter client setup
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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",
+    api_key="Api secret key is inserted here"  # Replace with your actual OpenRouter API key
 )
 
 MODEL = "google/gemini-3.1-flash-lite"
