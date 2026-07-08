@@ -2,11 +2,10 @@
 Text Summarizer (Uisng google/gemini-3.1-flash-lite throgh OpenRouter)
 ------------------------------------------
 Asks the user for text to summarize, sends it to an LLM via OpenRouter,
-and saves the summary as either summarize.pdf or summarize.txt.
+and saves the summary as either summarized.pdf or summarized.txt.
 
 IMPORTANT: The decision of PDF vs TXT is made entirely by PYTHON, using a
-simple case-insensitive search for the substring "pdf" in the user's raw
-input. The LLM is never asked about, and never controls, the output format.
+simple case-insensitive search.
 """
 
 import re
@@ -84,7 +83,7 @@ def save_as_pdf(summary: str, filename: str = "summarized.pdf") -> None:
     story = [Paragraph("Summary", styles["Title"]), Spacer(1, 12)]
 
     # Split into paragraphs on blank lines so multi-paragraph summaries
-    # render as separate paragraphs instead of one wall of text.
+    # render as separate paragraphs instead of one long string of text.
     for para in summary.split("\n\n"):
         para = para.strip()
         if para:
