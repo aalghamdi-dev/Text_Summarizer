@@ -95,21 +95,31 @@ def save_as_pdf(summary: str, filename: str = "summarized.pdf") -> None:
 
 
 def main() -> None:
-    user_text = input(
-        "Enter the text you want to summarize "
-        "(Note: mention 'pdf' if you want a PDF, otherwise you'll get a .txt):\n> "
-    )
+    print("Text Summarizer — type 'exit' at any time to quit.\n")
 
-    if not user_text.strip():
-        print("No text provided. Exiting.")
-        return
+    while True:
+        user_text = input(
+            "Enter the text you want to summarize "
+            "(Note: mention 'pdf' if you want a PDF, otherwise you'll get a .txt),\n"
+            "or type 'exit' to quit:\n> "
+        )
 
-    summary = get_summary(user_text)
+        if user_text.strip().lower() == "exit":
+            print("Exiting. Bye!")
+            break
 
-    if wants_pdf(user_text):
-        save_as_pdf(summary)
-    else:
-        save_as_txt(summary)
+        if not user_text.strip():
+            print("No text provided. Try again.\n")
+            continue
+
+        summary = get_summary(user_text)
+
+        if wants_pdf(user_text):
+            save_as_pdf(summary)
+        else:
+            save_as_txt(summary)
+
+        print()  # blank line before the next prompt
 
 
 if __name__ == "__main__":
