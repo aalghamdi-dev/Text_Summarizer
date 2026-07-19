@@ -1,4 +1,5 @@
-# AI Text Summarizer (Day 4-5)
+# AI Text Summarizer 
+Day 4-5, Week 1 — Summer Training, KAU HPC Center
 
 A small, containerized Python app that summarizes text using an LLM via [OpenRouter](https://openrouter.ai), and saves the result as either a `.txt` or `.pdf` — the format is decided by Python itself (based on whether you mention "pdf" in your input), not the model.
 
